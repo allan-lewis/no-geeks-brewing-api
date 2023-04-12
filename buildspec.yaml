@@ -14,5 +14,7 @@ phases:
       - docker tag allanelewis/no-geeks-brewing-api:latest allanelewis/no-geeks-brewing-api:latest
   post_build:
     commands:
-      - docker login
+      - echo "$DOCKER_USER"
+      - echo "$DOCKER_PASSWORD"
+      - docker login -u=$DOCKER_USER -p=$DOCKER_PASSWORD
       - docker push allanelewis/no-geeks-brewing-api:latest
