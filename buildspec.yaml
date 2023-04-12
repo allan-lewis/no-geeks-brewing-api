@@ -7,8 +7,8 @@ phases:
   build:
     commands:
       - mvn package
-      - docker build -t no-geeks-brewing-api:latest .
-      - docker tag no-geeks-brewing-api:latest public.ecr.aws/r0y0h7r0/no-geeks-brewing/no-geeks-brewing-api:latest
+      - docker build -t allanelewis/no-geeks-brewing-api:latest .
+      - docker tag allanelewis/no-geeks-brewing-api:latest allanelewis/no-geeks-brewing-api:latest
   post_build:
     commands:
-      - docker push public.ecr.aws/r0y0h7r0/no-geeks-brewing/no-geeks-brewing-api:latest
+      - docker push allanelewis/no-geeks-brewing-api:latest
