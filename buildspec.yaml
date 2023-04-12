@@ -7,4 +7,8 @@ phases:
   build:
     commands:
       - mvn package
-      - docker build -t irunninglog/api-graphql:latest .
+      - docker build -t no-geeks-brewing-api:latest .
+      - docker tag no-geeks-brewing-api:latest public.ecr.aws/r0y0h7r0/no-geeks-brewing/no-geeks-brewing-api:latest
+#  post_build:
+#    commands:
+#      - docker push 329192577320.dkr.ecr.us-east-1.amazonaws.com/irunninglog/api-graphql:latest
