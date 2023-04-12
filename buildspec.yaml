@@ -14,4 +14,5 @@ phases:
       - docker tag allanelewis/no-geeks-brewing-api:latest allanelewis/no-geeks-brewing-api:latest
   post_build:
     commands:
+      - docker login
       - docker push allanelewis/no-geeks-brewing-api:latest
