@@ -1,5 +1,5 @@
 type Query {
-    batches: [Batch]
+    batches(status: String): [Batch]
 }
 
 type Batch {

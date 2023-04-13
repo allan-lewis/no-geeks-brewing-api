@@ -7,8 +7,8 @@ import reactor.core.publisher.Flux
 @Component
 class BatchService(val repository: BatchRepository) {
 
-    fun batches(): Flux<Batch> {
-        return repository.findAll()
+    fun batches(status: String): Flux<Batch> {
+        return repository.findAll().filter{ b -> b.status.lowercase() == status.lowercase() }
     }
 
 }
