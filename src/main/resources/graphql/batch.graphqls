@@ -8,4 +8,5 @@ type Batch {
     batchNumber: Float
     brewDate: Float
     status: String
+    style: String
 }
