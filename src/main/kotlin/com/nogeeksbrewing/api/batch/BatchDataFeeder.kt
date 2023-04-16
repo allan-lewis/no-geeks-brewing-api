@@ -57,10 +57,11 @@ class BatchDataFeeder(private val batchRepository: BatchRepository,
 
             for (batch in responseEntity.body!!) {
                 batchRepository.findByForeignId(batch.id)
-                    .defaultIfEmpty(Batch(batch))
-                    .subscribe{ b ->
-                        logger.info { b }
-                        batchRepository.save(Batch(b)).subscribe()
+                    .defaultIfEmpty(Batch(0, batch))
+                    .subscribe{ before ->
+                        logger.info { "brewfather $batch" }
+                        logger.info { "ngb (before) $before" }
+                        batchRepository.save(Batch(before.id, batch)).subscribe{ after ->  logger.info { "ngb (after) $after" }}
                     }
 
                 last = batch.id

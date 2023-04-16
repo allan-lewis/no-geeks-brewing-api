@@ -10,20 +10,12 @@ data class Batch(@Id val id: Long,
                  val status: String,
                  val style: String) {
 
-    constructor(batch: BrewfatherBatch) : this(0,
-        batch.id,
-        batch.name,
-        batch.batchNumber,
-        batch.brewDate,
-        batch.status,
-        batch.recipe.style.name)
-
-    constructor(batch: Batch) : this (batch.id,
-        batch.foreignId,
-        batch.name,
-        batch.batchNumber,
-        batch.brewDate,
-        batch.status,
-        batch.style)
+    constructor(id: Long, brewfatherBatch: BrewfatherBatch) : this(id,
+        brewfatherBatch.id,
+        brewfatherBatch.name,
+        brewfatherBatch.batchNumber,
+        brewfatherBatch.brewDate,
+        brewfatherBatch.status,
+        brewfatherBatch.recipe.style.name)
 
 }
