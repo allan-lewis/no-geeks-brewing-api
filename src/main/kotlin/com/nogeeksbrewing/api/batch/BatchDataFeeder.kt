@@ -17,13 +17,14 @@ import java.net.URI
 import java.util.*
 import kotlin.concurrent.timerTask
 
+private val logger = KotlinLogging.logger {}
+
 @Component
 class BatchDataFeeder(private val batchRepository: BatchRepository,
                       @Value("\${ngb.brewfather.batchSize}") private val batchSize: Int,
                       @Value("\${ngb.brewfather.url}") private val url: String,
                       @Value("\${ngb.brewfather.auth.token}") private val authToken: String) : ApplicationRunner {
 
-    private val logger = KotlinLogging.logger {}
     private val restTemplate = RestTemplate()
 
     @PostConstruct
